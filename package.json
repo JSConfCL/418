@@ -28,5 +28,6 @@
   "devDependencies": {
     "daisyui": "^3.1.7",
     "prettier": "^2.8.8"
-  }
+  },
+  "license": "MIT"
 }
