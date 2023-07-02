@@ -1,11 +1,21 @@
 import { Nav } from "@/components/nav";
 import "./globals.css";
-import { Inter, Roboto, Aboreto } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import classNames from "classnames";
 import { Footer } from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["500", "700", "900"],
+});
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+  weight: ["400", "700"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -18,11 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="acid">
-      <body className={classNames(roboto.className)}>
+    <html
+      lang="es"
+      className="h-screen overflow-hidden bg-blue-900	bg-gradient-to-b from-blue-900 from-30%  to-fuchsia-800"
+    >
+      <body
+        className={classNames(
+          inter.variable,
+          roboto.variable,
+          "h-full overflow-auto text-white"
+        )}
+      >
         <Nav />
-        <div className="flex flex-col items-center">{children}</div>
-        <Footer />
+        <div className="flex shrink-0 flex-col items-center">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

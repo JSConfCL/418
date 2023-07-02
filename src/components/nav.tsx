@@ -1,25 +1,34 @@
-import { HomeIcon } from "@heroicons/react/24/solid";
-import { TeapotLogo } from "./teapot418";
+import Link from "next/link";
+import { TeapotLogo } from "@/components/teapot418";
 
 export const Nav = () => {
   return (
-    <div className="flex justify-center items-center py-4 px-4">
-      <div className="flex gap-8 flex-1 max-w-4xl justify-between items-center">
-        <div className="h-16 w-16 flex justify-center items-center">
+    <div className="fixed top-0 flex w-full justify-center py-4">
+      <div className="md: xl: flex w-full max-w-5xl flex-row items-center justify-between px-6 transition-all md:px-10 xl:px-0">
+        <div className="flex h-16 w-16 items-center justify-center">
           <TeapotLogo />
         </div>
 
-        <div className="navbar rounded-sm flex flex-1 justify-end">
-          <div className="flex-1 flex justify-end gap-6">
-            <a className="sentence-case text-md link link-primary	link-hover hover:no-underline transition-all font-bold">
+        <div className="flex flex-1 justify-end ">
+          <div className="flex flex-1 items-center justify-end gap-6">
+            <Link
+              href={"/pregunta"}
+              className=" shrink-0 rounded border-b-4 border-amber-700  bg-amber-500 px-4 py-2 font-bold  text-white transition-all hover:border-amber-700 hover:bg-amber-600 hover:no-underline"
+            >
               Haz una pregunta!
-            </a>
-            <a className="sentence-case text-md link link-primary	link-hover hover:no-underline transition-all font-bold">
+            </Link>
+            <Link
+              href={"/sponsors"}
+              className=" shrink-0 p-2 font-bold transition-all hover:no-underline"
+            >
               Sponsors
-            </a>
-            <a className="sentence-case text-md link link-primary	link-hover hover:no-underline transition-all font-bold">
+            </Link>
+            <Link
+              href={"/discord"}
+              className=" shrink-0 p-2 font-bold transition-all hover:no-underline"
+            >
               Discord
-            </a>
+            </Link>
           </div>
         </div>
       </div>

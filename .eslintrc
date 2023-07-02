@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:tailwindcss/recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
