@@ -31,6 +31,7 @@ module.exports = {
       matchUtilities(
         {
           "text-shadow": (value) => ({
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             textShadow: value,
           }),
         },
