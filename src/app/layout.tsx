@@ -2,7 +2,6 @@ import { Nav } from "@/components/nav";
 import "./globals.css";
 import { Inter, Roboto } from "next/font/google";
 import classNames from "classnames";
-import { Footer } from "@/components/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,22 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="es"
-      className="h-screen overflow-hidden bg-blue-900	bg-gradient-to-b from-blue-900 from-30%  to-fuchsia-800"
-    >
+    <html lang="es" className="h-screen overflow-hidden">
       <body
         className={classNames(
           inter.variable,
           roboto.variable,
-          "h-full overflow-auto text-white"
+          "h-full overflow-hidden text-white"
         )}
       >
         <Nav />
-        <div className="flex shrink-0 flex-col items-center">
-          {children}
-          <Footer />
-        </div>
+        {children}
       </body>
     </html>
   );
