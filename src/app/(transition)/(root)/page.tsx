@@ -7,8 +7,8 @@ export default function Home() {
           <span>I&apos;m a Teapot</span>
         </h1>
         <p className="text-xl shadow-slate-900 text-shadow-sm md:text-2xl xl:text-3xl">
-          El livestream bi-semanal, de discusión y consejos en el area de
-          Desarrollo, e Ingenería de Software
+          418 livestream bi-semanal, de discusión y consejos en el area de
+          Desarrollo, e Ingenería de Software.
         </p>
       </div>
     </main>

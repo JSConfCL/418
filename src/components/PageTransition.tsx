@@ -11,6 +11,7 @@ const animate = { y: 0, opacity: 1 } satisfies AnimationProps["animate"];
 const exit = { y: "5vh", opacity: 0 } satisfies AnimationProps["exit"];
 const transition = {
   delay: 0.25,
+  duration: 1,
   ease: "anticipate",
 } satisfies AnimationProps["transition"];
 
