@@ -43,6 +43,13 @@ export default defineType({
       description: "Descripción del episodio",
     }),
     defineField({
+      name: "youtubeUrl",
+      validation: (Rule) => Rule.required(),
+      title: "Youtube URL",
+      type: "url",
+      description: "Link al video de youtube",
+    }),
+    defineField({
       name: "asistentes",
       title: "Asistentes",
       validation: (Rule) => {
