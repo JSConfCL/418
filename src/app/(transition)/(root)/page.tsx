@@ -1,21 +1,23 @@
 import { API } from "@/api";
+import { TeapotLogo } from "@/components/teapot418";
 
 // import { LastEpisodeDocument } from "./lastEpisode.generated";
 
 export default async function Home() {
   const data = await API.LastEpisode();
   const episodio = data.allEpisodio.at(0);
+
   return (
-    <main className="flex max-w-5xl flex-col items-center justify-between px-6 pt-36 transition-all md:px-10 md:pt-44 xl:px-0 xl:pt-52">
-      <div className="flex flex-col gap-16 pb-4">
-        <h1 className="flex flex-col justify-start gap-7 text-left text-6xl font-extrabold shadow-slate-900 transition-all text-shadow sm:text-7xl xl:text-8xl">
-          <span>418</span>
-          <span>I&apos;m a Teapot</span>
+    <main className="flex w-full max-w-5xl flex-col items-center justify-between px-6 pt-36 transition-all md:px-10 md:pt-44 xl:px-0 xl:pt-52">
+      <div className="flex flex-col gap-4 pb-16 text-center items-center">
+        <div className="h-32 w-32 sm:h-64 sm:w-64 animate-gradient-svg from-purple-400 to-pink-600">
+          <TeapotLogo />
+        </div>
+        <h1 className="text-5xl font-extrabold shadow-slate-900 transition-all sm:text-7xl xl:text-8xl">
+          <span>Status</span>
+          <span className="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 ml-2">418</span>
         </h1>
-        <p className="text-xl shadow-slate-900 text-shadow-sm md:text-2xl xl:text-3xl">
-          418 livestream bi-semanal, de discusión y consejos en el area de
-          Desarrollo, e Ingenería de Software.
-        </p>
+        <h2 className="text-base text-slate-700 sm:text-2xl xl:text-3xl">Un Podcast de Tecnología, Web y Comunidad.</h2>
       </div>
       <div className="flex flex-col gap-4">
         {episodio && (
