@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        'gradient-text': 'gradient-text 5s ease infinite'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -18,6 +21,18 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-roboto)", ...fontFamily.sans],
         heading: ["var(--font-inter)", ...fontFamily.sans],
+      },
+      keyframes: {
+        'gradient-text': {
+          '0%, 100%': {
+              'background-size':'200% 200%',
+              'background-position': 'left center'
+          },
+          '50%': {
+              'background-size':'200% 200%',
+              'background-position': 'right center'
+          }
+        }
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
