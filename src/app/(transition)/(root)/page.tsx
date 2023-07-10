@@ -1,7 +1,15 @@
+import { Metadata } from 'next';
+
 import { API } from "@/api";
 import { TeapotLogo } from "@/components/teapot418";
 
 // import { LastEpisodeDocument } from "./lastEpisode.generated";
+
+export const metadata: Metadata = {
+  title: "Status 418: I&apos;m a Teapot",
+  description:
+    'Somos un Streaming y Podcast, de Tecnolog&iacute;a y Comunidad. Hecho con &hearts; por el equipo de JavaScript Chile.',
+};
 
 export default async function Home() {
   const data = await API.LastEpisode();
