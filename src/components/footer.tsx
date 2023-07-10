@@ -1,28 +1,10 @@
 import React from "react";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="p-10">
-      <div>
-        <span className="">Services</span>
-        <a className="">Branding</a>
-        <a className="">Design</a>
-        <a className="">Marketing</a>
-        <a className="">Advertisement</a>
-      </div>
-      <div>
-        <span className="">Company</span>
-        <a className="">About us</a>
-        <a className="">Contact</a>
-        <a className="">Jobs</a>
-        <a className="">Press kit</a>
-      </div>
-      <div>
-        <span className="">Legal</span>
-        <a className="">Terms of use</a>
-        <a className="">Privacy policy</a>
-        <a className="">Cookie policy</a>
-      </div>
+    <footer className="p-4 bg-black text-center">
+      Hecho con ❤️ por <Link href="https://jschile.org/" target="_blank" rel="noopener noreferrer" className="cursor-pointer font-extrabold hover:no-underline text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-400">JavaScript Chile</Link>.
     </footer>
   );
 };
