@@ -10,7 +10,8 @@
     "prestart": "npm run generate",
     "predev": "npm run generate",
     "lint": "next lint",
-    "prettier": "prettier ./src --write"
+    "prettier": "prettier ./src --cache --check",
+    "prettier:fix": "prettier ./src --cache --write"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
