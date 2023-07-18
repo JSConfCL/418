@@ -12,6 +12,7 @@ import { Facebook } from "@/components/icons/facebook";
 import { Question } from "@/components/icons/question";
 import { Rocket } from "@/components/icons/rocket";
 import { Guest } from "@/components/icons/guest";
+import classNames from "classnames";
 
 export const metadata: Metadata = {
   title: "Status 418: Im a Teapot",
@@ -22,25 +23,19 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div
-        // eslint-disable-next-line tailwindcss/no-custom-classname, tailwindcss/enforces-negative-arbitrary-values
-        className="
-        absolute h-full w-full overflow-hidden
-        before:absolute before:-left-[0%] before:-top-[0%] before:-z-10 before:h-1/5 before:w-1/5 before:rounded-full	before:bg-purple-400 before:opacity-80 before:blur-3xl after:absolute after:-bottom-[0%] after:-right-[0%]
-        after:-z-10 after:h-1/5 after:w-1/5 after:rounded-full after:bg-pink-600 after:opacity-80 after:blur-3xl	lg:before:-left-[5%] lg:before:-top-[5%] lg:before:opacity-40 lg:after:-bottom-[5%] lg:after:-right-[5%] lg:after:opacity-40
-      "
-      />
-      <main className="flex max-w-5xl items-center justify-center p-16 transition-all">
+      <main className="flex max-w-5xl flex-1 items-center justify-center p-16 transition-all">
         <div
           className="
           relative flex flex-col items-center gap-4 text-center
         "
         >
           <div
-            className="
-            relative flex flex-col items-center gap-4 text-center
-            before:absolute before:left-[10%] before:top-[10%] before:-z-10 before:h-[80%] before:w-[80%] before:animate-gradient-svg before:rounded-full	before:bg-gradient-radial before:from-purple-400 before:to-pink-600 before:opacity-30 before:blur-3xl
-          "
+            className={classNames(
+              // layout
+              `relative flex flex-col items-center gap-4 text-center`,
+              // decoration
+              `before:absolute before:left-[10%] before:top-[10%] before:-z-10 before:h-[80%] before:w-[80%] before:animate-gradient-svg before:rounded-full	before:bg-gradient-radial before:from-purple-400 before:to-pink-600 before:opacity-30 before:blur-3xl`
+            )}
           >
             <div className="h-32 w-32 animate-gradient-svg from-purple-400 to-pink-600 sm:h-64 sm:w-64">
               <TeapotLogo />
