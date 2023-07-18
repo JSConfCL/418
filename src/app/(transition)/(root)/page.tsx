@@ -9,6 +9,9 @@ import { Youtube } from '@/components/icons/youtube';
 import { LinkedIn } from '@/components/icons/linkedin';
 import { Twitch } from '@/components/icons/tiwtch';
 import { Facebook } from '@/components/icons/facebook';
+import { Question } from '@/components/icons/question';
+import { Rocket } from '@/components/icons/rocket';
+import { Guest } from '@/components/icons/guest';
 
 export const metadata: Metadata = {
   title: "Status 418: Im a Teapot",
@@ -35,12 +38,12 @@ export default function Home() {
             <div className="h-32 w-32 sm:h-64 sm:w-64 animate-gradient-svg from-purple-400 to-pink-600">
               <TeapotLogo />
             </div>
-            <h1 className="text-5xl font-extrabold shadow-slate-900 transition-all sm:text-7xl xl:text-8xl">
+            <h1 className="text-3xl font-extrabold shadow-slate-900 transition-all sm:text-5xl xl:text-6xl">
               <span>Status</span>
               <span className="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 ml-2">418</span>
             </h1>
           </div>
-          <h2 className="text-base text-slate-300 sm:text-2xl xl:text-3xl mb-4">Un Podcast de Tecnología, Web y Comunidad.</h2>
+          <h2 className="text-lg text-slate-300 sm:text-xl xl:text-2xl mb-4">Un Podcast de Tecnología, Web y Comunidad.</h2>
           <div className="">
             <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl">Escucha en vivo</h3>
             <div className="h-8 flex gap-4 gap-x-8 justify-center my-4 text-slate-300">
@@ -77,13 +80,29 @@ export default function Home() {
                 <Facebook />
               </Link>
             </div>
-            <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl mt-8">Escucha los capitulos anteriores</h3>
+            <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl mt-10">Escucha los capitulos anteriores</h3>
             <div className="h-8 flex gap-4 gap-x-8 justify-center my-4 text-slate-300">
               <ApplePodcast />
               <GooglePodcast />
               <Spotify />
             </div>
-
+            <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl mt-10">Nuestro Podcast</h3>
+            <div>
+              <ul className='text-slate-500'>
+                <li className='leading-9'>
+                  <span className='inline-block	align-middle h-6 w-6 text-orange-400 mr-2'><Question /></span>
+                  Agrega tus preguntas, las comentaremos en los siguientes episodios.
+                </li>
+                <li className='leading-9'>
+                  Conversamos temas de interés y contingentes.
+                  <span className='inline-block	align-middle h-6 w-6 text-orange-400 ml-2'><Rocket /></span>
+                </li>
+                <li className='leading-9'>
+                  <span className='inline-block	align-middle h-6 w-6 text-orange-400 mr-2'><Guest /></span>
+                  Invitados de distintas áreas tecnológicas.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </main>
