@@ -24,10 +24,10 @@ export default function Home() {
     <>
       <div className="
         absolute w-full h-full overflow-hidden
-        hover:before:absolute before:-left-[0%] before:-top-[0%] lg:before:-left-[5%] lg:before:-top-[5%] before:-z-10 before:h-1/5	before:w-1/5 before:bg-gradient-radial before:from-purple-400 before:to-purple-400 before:blur-3xl before:opacity-80 lg:before:opacity-40 before:rounded-full
-        after:absolute after:-right-[0%] after:-bottom-[0%] lg:after:-right-[5%] lg:after:-bottom-[5%] after:-z-10 after:h-1/5	after:w-1/5 after:bg-gradient-radial after:from-pink-600 after:to-pink-600 after:blur-3xl after:opacity-80 lg:after:opacity-40 after:rounded-full
+        before:absolute before:-left-[0%] before:-top-[0%] lg:before:-left-[5%] lg:before:-top-[5%] before:-z-10 before:h-1/5	before:w-1/5 before:bg-purple-400 before:blur-3xl before:opacity-80 lg:before:opacity-40 before:rounded-full
+        after:absolute after:-right-[0%] after:-bottom-[0%] lg:after:-right-[5%] lg:after:-bottom-[5%] after:-z-10 after:h-1/5	after:w-1/5 after:bg-pink-600 after:blur-3xl after:opacity-80 lg:after:opacity-40 after:rounded-full
       " />
-      <main className="flex items-center justify-center h-[calc(100vh_-_100px)] max-w-5xl px-6 transition-all">
+      <main className="flex items-center justify-center max-w-5xl transition-all p-16">
         <div className="
           relative flex flex-col gap-4 text-center items-center
         ">
@@ -80,11 +80,11 @@ export default function Home() {
                 <Facebook />
               </Link>
             </div>
-            <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl mt-10">Escucha los capitulos anteriores</h3>
+            <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl mt-10">Escucha los episodios anteriores</h3>
             <div className="h-8 flex gap-4 gap-x-8 justify-center my-4 text-slate-300">
-              <ApplePodcast />
-              <GooglePodcast />
-              <Spotify />
+              <span className='h-8 w-8 cursor-not-allowed'><ApplePodcast /></span>
+              <span className='h-8 w-8 cursor-not-allowed'><GooglePodcast /></span>
+              <span className='h-8 w-8 cursor-not-allowed'><Spotify /></span>
             </div>
             <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl mt-10">Nuestro Podcast</h3>
             <div>

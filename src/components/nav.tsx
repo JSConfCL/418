@@ -61,14 +61,14 @@ export const Nav = () => {
           <div className={`flex-1 flex-col items-center gap-6 ${isOpen ? 'flex absolute inset-x-0 top-[47px] bg-black w-screen h-screen justify-start z-10' : 'hidden justify-end'} lg:flex lg:flex-row`}>
             <Link
               href="mailto:status418@jschile.org"
-              className="shrink-0 p-2 text-slate-400 transition-all hover:no-underline"
+              className="shrink-0 p-2 text-slate-400 transition-all hover:no-underline hover:text-white "
             >
               Contacto
             </Link>
             <Link
               target="_blank"
               href="https://discord.gg/arFgckGJ"
-              className="shrink-0 p-2 text-slate-400 transition-all hover:no-underline"
+              className="shrink-0 p-2 text-slate-400 transition-all hover:no-underline hover:text-white "
             >
               Discord
             </Link>

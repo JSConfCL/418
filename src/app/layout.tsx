@@ -34,7 +34,7 @@ export default function RootLayout({
         className={classNames(
           inter.variable,
           roboto.variable,
-          "h-full overflow-scroll text-white"
+          "h-full text-white"
         )}
       >
         <Nav />
