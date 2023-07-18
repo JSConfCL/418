@@ -1,5 +1,4 @@
 import { Nav } from "@/components/nav";
-import { Footer } from "@/components/footer";
 
 import "./globals.css";
 import { Inter, Roboto } from "next/font/google";

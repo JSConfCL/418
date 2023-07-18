@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-export const BackgroundDectoration = () => {
+export const BackgroundDecoration = () => {
   return (
     <div
       className={classNames(
