@@ -1,4 +1,5 @@
 import { Nav } from "@/components/nav";
+
 import "./globals.css";
 import { Inter, Roboto } from "next/font/google";
 import classNames from "classnames";
@@ -32,7 +33,7 @@ export default function RootLayout({
         className={classNames(
           inter.variable,
           roboto.variable,
-          "h-full overflow-hidden text-white"
+          "h-full text-white"
         )}
       >
         <Nav />
