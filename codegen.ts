@@ -26,6 +26,16 @@ const config = {
         avoidOptionals: true,
         useTypeImports: true,
         defaultScalarType: "unknown",
+        scalars: {
+          Date: {
+            input: 'string',
+            output: 'string'
+          },
+         DateTime: {
+            input: 'string',
+            output: 'string'
+          }
+        }
       },
     },
   },
