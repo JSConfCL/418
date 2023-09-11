@@ -928,15 +928,15 @@ export type TagSorting = {
   tag: InputMaybe<SlugSorting>;
 };
 
-export type LatestEpisodeQueryVariables = Exact<{ [key: string]: never; }>;
+export type LatestEpisodesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LatestEpisodeQuery = { __typename?: 'RootQuery', allEpisode: Array<{ __typename?: 'Episode', _id: string | null, episode: number | null, date: string | null, runtime: number | null, title: string | null, description: string | null, youtubeUrl: string | null, twitchUrl: string | null, facebookUrl: string | null, linkedinUrl: string | null }> };
+export type LatestEpisodesQuery = { __typename?: 'RootQuery', allEpisode: Array<{ __typename?: 'Episode', _id: string | null, episode: number | null, date: string | null, runtime: number | null, title: string | null, description: string | null, youtubeUrl: string | null, twitchUrl: string | null, facebookUrl: string | null, linkedinUrl: string | null }> };
 
 
-export const LatestEpisodeDocument = gql`
-    query LatestEpisode {
-  allEpisode(sort: [{date: DESC}], limit: 1) {
+export const LatestEpisodesDocument = gql`
+    query LatestEpisodes {
+  allEpisode(sort: [{date: DESC}], limit: 4) {
     _id
     episode
     date
@@ -958,8 +958,8 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    LatestEpisode(variables?: LatestEpisodeQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<LatestEpisodeQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<LatestEpisodeQuery>(LatestEpisodeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'LatestEpisode', 'query');
+    LatestEpisodes(variables?: LatestEpisodesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<LatestEpisodesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<LatestEpisodesQuery>(LatestEpisodesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'LatestEpisodes', 'query');
     }
   };
 }

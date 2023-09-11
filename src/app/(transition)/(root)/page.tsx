@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const data = await API.LatestEpisode()
-  const latestEpisode = data?.allEpisode?.[0] ?? []
+  const data = await API.LatestEpisodes()
+  const latestEpisodes = data?.allEpisode
 
-  return <ClientPage latestEpisode={latestEpisode as Episode} />
+  return <ClientPage latestEpisodes={latestEpisodes as Episode[]} />
 }

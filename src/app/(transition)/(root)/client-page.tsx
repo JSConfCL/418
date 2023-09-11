@@ -8,9 +8,18 @@ import { Rocket } from "@/components/icons/rocket";
 import { Guest } from "@/components/icons/guest";
 
 import { EpisodeDetails } from "@/components/EpisodeDetails/EpisodeDetails";
+import { EpisodePreview } from "@/components/EpisodePreview/EpisodePreview";
+
 import { Episode } from "@/api/types";
 
-export default function ClientPage ({ latestEpisode }: { latestEpisode: Episode}) {
+export default function ClientPage({
+  latestEpisodes: latestEpisodes,
+}: {
+  latestEpisodes: Episode[];
+}) {
+  const latestOrNextEpisode = latestEpisodes[0];
+  const prevEpisodes = latestEpisodes.slice(1);
+
   return (
     <>
       <main className="flex max-w-5xl flex-1 items-center justify-center p-16 transition-all">
@@ -42,7 +51,7 @@ export default function ClientPage ({ latestEpisode }: { latestEpisode: Episode}
           </h2>
           <div className="">
             <div className="mb-8">
-              <EpisodeDetails {...latestEpisode} />
+              <EpisodeDetails {...latestOrNextEpisode} />
             </div>
             <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl">
               Escucha en vivo
@@ -86,6 +95,21 @@ export default function ClientPage ({ latestEpisode }: { latestEpisode: Episode}
                   Invitados de distintas áreas tecnológicas.
                 </li>
               </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 mt-10 animate-gradient-text bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-base font-extrabold text-transparent sm:text-lg xl:text-xl">
+                Episodios Anteriores
+              </h3>
+              <div className="grid grid-cols-12 gap-4">
+                {prevEpisodes.map((episode) => (
+                  <div
+                    key={episode.episode}
+                    className="col-span-12 lg:col-span-4"
+                  >
+                    <EpisodePreview {...episode} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

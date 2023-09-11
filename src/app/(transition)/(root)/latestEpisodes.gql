@@ -1,5 +1,5 @@
-query LatestEpisode {
-  allEpisode(sort: [{ date: DESC }], limit: 1) {
+query LatestEpisodes {
+  allEpisode(sort: [{ date: DESC }], limit: 4) {
     _id
     episode
     date
