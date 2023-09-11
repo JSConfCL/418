@@ -1,9 +1,9 @@
 import { type SchemaTypeDefinition } from "sanity";
 
 import tag from "./schemas/tag";
-import episodio from "./schemas/episodio";
-import persona from "./schemas/persona";
+import episode from "./schemas/episode";
+import person from "./schemas/person";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [episodio, persona, tag],
+  types: [episode, person, tag],
 };

@@ -130,8 +130,8 @@ export type DocumentSorting = {
   _updatedAt: InputMaybe<SortOrder>;
 };
 
-export type Episodio = Document & {
-  __typename?: 'Episodio';
+export type Episode = Document & {
+  __typename?: 'Episode';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']['output']>;
   /** Document ID */
@@ -143,19 +143,34 @@ export type Episodio = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  asistentes: Maybe<Array<Maybe<Persona>>>;
+  /** Apple Podcast URL */
+  applePodcastUrl: Maybe<Scalars['String']['output']>;
   body: Maybe<Scalars['String']['output']>;
-  /** Descripción del episodio */
-  descripcion: Maybe<Scalars['String']['output']>;
-  fecha: Maybe<Scalars['Date']['output']>;
+  date: Maybe<Scalars['DateTime']['output']>;
+  /** Episode's Description */
+  description: Maybe<Scalars['String']['output']>;
+  episode: Maybe<Scalars['Float']['output']>;
+  /** Linkedin URL */
+  facebookUrl: Maybe<Scalars['String']['output']>;
+  /** Google Podcast URL */
+  googlePodcastUrl: Maybe<Scalars['String']['output']>;
+  hosts: Maybe<Array<Maybe<Person>>>;
+  /** Linkedin URL */
+  linkedinUrl: Maybe<Scalars['String']['output']>;
   mainImage: Maybe<Image>;
+  runtime: Maybe<Scalars['Float']['output']>;
+  season: Maybe<Scalars['Float']['output']>;
+  /** Spotify URL */
+  spotifyUrl: Maybe<Scalars['String']['output']>;
   tags: Maybe<Array<Maybe<Tag>>>;
-  titulo: Maybe<Scalars['String']['output']>;
-  /** Link al video de youtube */
+  title: Maybe<Scalars['String']['output']>;
+  /** Tiwtch URL */
+  twitchUrl: Maybe<Scalars['String']['output']>;
+  /** Youtube URL */
   youtubeUrl: Maybe<Scalars['String']['output']>;
 };
 
-export type EpisodioFilter = {
+export type EpisodeFilter = {
   /** Apply filters on document level */
   _: InputMaybe<Sanity_DocumentFilter>;
   _createdAt: InputMaybe<DatetimeFilter>;
@@ -164,26 +179,44 @@ export type EpisodioFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
+  applePodcastUrl: InputMaybe<StringFilter>;
   body: InputMaybe<StringFilter>;
-  descripcion: InputMaybe<StringFilter>;
-  fecha: InputMaybe<DateFilter>;
+  date: InputMaybe<DatetimeFilter>;
+  description: InputMaybe<StringFilter>;
+  episode: InputMaybe<FloatFilter>;
+  facebookUrl: InputMaybe<StringFilter>;
+  googlePodcastUrl: InputMaybe<StringFilter>;
+  linkedinUrl: InputMaybe<StringFilter>;
   mainImage: InputMaybe<ImageFilter>;
-  titulo: InputMaybe<StringFilter>;
+  runtime: InputMaybe<FloatFilter>;
+  season: InputMaybe<FloatFilter>;
+  spotifyUrl: InputMaybe<StringFilter>;
+  title: InputMaybe<StringFilter>;
+  twitchUrl: InputMaybe<StringFilter>;
   youtubeUrl: InputMaybe<StringFilter>;
 };
 
-export type EpisodioSorting = {
+export type EpisodeSorting = {
   _createdAt: InputMaybe<SortOrder>;
   _id: InputMaybe<SortOrder>;
   _key: InputMaybe<SortOrder>;
   _rev: InputMaybe<SortOrder>;
   _type: InputMaybe<SortOrder>;
   _updatedAt: InputMaybe<SortOrder>;
+  applePodcastUrl: InputMaybe<SortOrder>;
   body: InputMaybe<SortOrder>;
-  descripcion: InputMaybe<SortOrder>;
-  fecha: InputMaybe<SortOrder>;
+  date: InputMaybe<SortOrder>;
+  description: InputMaybe<SortOrder>;
+  episode: InputMaybe<SortOrder>;
+  facebookUrl: InputMaybe<SortOrder>;
+  googlePodcastUrl: InputMaybe<SortOrder>;
+  linkedinUrl: InputMaybe<SortOrder>;
   mainImage: InputMaybe<ImageSorting>;
-  titulo: InputMaybe<SortOrder>;
+  runtime: InputMaybe<SortOrder>;
+  season: InputMaybe<SortOrder>;
+  spotifyUrl: InputMaybe<SortOrder>;
+  title: InputMaybe<SortOrder>;
+  twitchUrl: InputMaybe<SortOrder>;
   youtubeUrl: InputMaybe<SortOrder>;
 };
 
@@ -295,8 +328,8 @@ export type IntFilter = {
   neq: InputMaybe<Scalars['Int']['input']>;
 };
 
-export type Persona = Document & {
-  __typename?: 'Persona';
+export type Person = Document & {
+  __typename?: 'Person';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']['output']>;
   /** Document ID */
@@ -314,7 +347,7 @@ export type Persona = Document & {
   slug: Maybe<Slug>;
 };
 
-export type PersonaFilter = {
+export type PersonFilter = {
   /** Apply filters on document level */
   _: InputMaybe<Sanity_DocumentFilter>;
   _createdAt: InputMaybe<DatetimeFilter>;
@@ -328,7 +361,7 @@ export type PersonaFilter = {
   slug: InputMaybe<SlugFilter>;
 };
 
-export type PersonaSorting = {
+export type PersonSorting = {
   _createdAt: InputMaybe<SortOrder>;
   _id: InputMaybe<SortOrder>;
   _key: InputMaybe<SortOrder>;
@@ -343,14 +376,14 @@ export type PersonaSorting = {
 export type RootQuery = {
   __typename?: 'RootQuery';
   Document: Maybe<Document>;
-  Episodio: Maybe<Episodio>;
-  Persona: Maybe<Persona>;
+  Episode: Maybe<Episode>;
+  Person: Maybe<Person>;
   SanityFileAsset: Maybe<SanityFileAsset>;
   SanityImageAsset: Maybe<SanityImageAsset>;
   Tag: Maybe<Tag>;
   allDocument: Array<Document>;
-  allEpisodio: Array<Episodio>;
-  allPersona: Array<Persona>;
+  allEpisode: Array<Episode>;
+  allPerson: Array<Person>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
   allTag: Array<Tag>;
@@ -362,12 +395,12 @@ export type RootQueryDocumentArgs = {
 };
 
 
-export type RootQueryEpisodioArgs = {
+export type RootQueryEpisodeArgs = {
   id: Scalars['ID']['input'];
 };
 
 
-export type RootQueryPersonaArgs = {
+export type RootQueryPersonArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -395,19 +428,19 @@ export type RootQueryAllDocumentArgs = {
 };
 
 
-export type RootQueryAllEpisodioArgs = {
+export type RootQueryAllEpisodeArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<Array<EpisodioSorting>>;
-  where: InputMaybe<EpisodioFilter>;
+  sort: InputMaybe<Array<EpisodeSorting>>;
+  where: InputMaybe<EpisodeFilter>;
 };
 
 
-export type RootQueryAllPersonaArgs = {
+export type RootQueryAllPersonArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<Array<PersonaSorting>>;
-  where: InputMaybe<PersonaFilter>;
+  sort: InputMaybe<Array<PersonSorting>>;
+  where: InputMaybe<PersonFilter>;
 };
 
 
@@ -867,7 +900,7 @@ export type Tag = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  descripcion: Maybe<Scalars['String']['output']>;
+  description: Maybe<Scalars['String']['output']>;
   tag: Maybe<Slug>;
 };
 
@@ -880,7 +913,7 @@ export type TagFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
-  descripcion: InputMaybe<StringFilter>;
+  description: InputMaybe<StringFilter>;
   tag: InputMaybe<SlugFilter>;
 };
 
@@ -891,33 +924,11 @@ export type TagSorting = {
   _rev: InputMaybe<SortOrder>;
   _type: InputMaybe<SortOrder>;
   _updatedAt: InputMaybe<SortOrder>;
-  descripcion: InputMaybe<SortOrder>;
+  description: InputMaybe<SortOrder>;
   tag: InputMaybe<SlugSorting>;
 };
 
-export type LastEpisodeQueryVariables = Exact<{ [key: string]: never; }>;
 
-
-export type LastEpisodeQuery = { __typename?: 'RootQuery', allEpisodio: Array<{ __typename?: 'Episodio', _id: string | null, titulo: string | null, descripcion: string | null, body: string | null, tags: Array<{ __typename?: 'Tag', _id: string | null, descripcion: string | null } | null> | null, asistentes: Array<{ __typename?: 'Persona', _id: string | null } | null> | null }> };
-
-
-export const LastEpisodeDocument = gql`
-    query LastEpisode {
-  allEpisodio(sort: [{fecha: DESC}], limit: 1) {
-    _id
-    titulo
-    descripcion
-    tags {
-      _id
-      descripcion
-    }
-    body
-    asistentes {
-      _id
-    }
-  }
-}
-    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -926,9 +937,7 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    LastEpisode(variables?: LastEpisodeQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<LastEpisodeQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<LastEpisodeQuery>(LastEpisodeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'LastEpisode', 'query');
-    }
+
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
