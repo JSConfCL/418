@@ -7,7 +7,10 @@ import { Question } from "@/components/icons/question";
 import { Rocket } from "@/components/icons/rocket";
 import { Guest } from "@/components/icons/guest";
 
-export default function ClientPage() {
+import { EpisodeDetails } from "@/components/EpisodeDetails/EpisodeDetails";
+import { Episode } from "@/api/types";
+
+export default function ClientPage ({ latestEpisode }: { latestEpisode: Episode}) {
   return (
     <>
       <main className="flex max-w-5xl flex-1 items-center justify-center p-16 transition-all">
@@ -38,6 +41,9 @@ export default function ClientPage() {
             Un Podcast de Tecnología, Web y Comunidad.
           </h2>
           <div className="">
+            <div className="mb-8">
+              <EpisodeDetails {...latestEpisode} />
+            </div>
             <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl">
               Escucha en vivo
             </h3>

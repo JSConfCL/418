@@ -19,8 +19,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  Date: { input: unknown; output: unknown; }
-  DateTime: { input: unknown; output: unknown; }
+  Date: { input: string; output: string; }
+  DateTime: { input: string; output: string; }
   JSON: { input: unknown; output: unknown; }
 };
 
@@ -928,7 +928,28 @@ export type TagSorting = {
   tag: InputMaybe<SlugSorting>;
 };
 
+export type LatestEpisodeQueryVariables = Exact<{ [key: string]: never; }>;
 
+
+export type LatestEpisodeQuery = { __typename?: 'RootQuery', allEpisode: Array<{ __typename?: 'Episode', _id: string | null, episode: number | null, date: string | null, runtime: number | null, title: string | null, description: string | null, youtubeUrl: string | null, twitchUrl: string | null, facebookUrl: string | null, linkedinUrl: string | null }> };
+
+
+export const LatestEpisodeDocument = gql`
+    query LatestEpisode {
+  allEpisode(sort: [{date: DESC}], limit: 1) {
+    _id
+    episode
+    date
+    runtime
+    title
+    description
+    youtubeUrl
+    twitchUrl
+    facebookUrl
+    linkedinUrl
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -937,7 +958,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-
+    LatestEpisode(variables?: LatestEpisodeQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<LatestEpisodeQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<LatestEpisodeQuery>(LatestEpisodeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'LatestEpisode', 'query');
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;

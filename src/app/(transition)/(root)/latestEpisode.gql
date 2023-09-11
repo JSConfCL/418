@@ -1,0 +1,14 @@
+query LatestEpisode {
+  allEpisode(sort: [{ date: DESC }], limit: 1) {
+    _id
+    episode
+    date
+    runtime
+    title
+    description
+    youtubeUrl
+    twitchUrl
+    facebookUrl
+    linkedinUrl
+  }
+}
