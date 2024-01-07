@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import classNames from "classnames";
 
 import { TeapotLogo } from "@/components/teapot418";
 import { ApplePodcast } from "@/components/icons/apple_podcast";
@@ -12,13 +13,10 @@ import { Facebook } from "@/components/icons/facebook";
 import { Question } from "@/components/icons/question";
 import { Rocket } from "@/components/icons/rocket";
 import { Guest } from "@/components/icons/guest";
-import classNames from "classnames";
 
-export const metadata: Metadata = {
-  title: "Status 418: Im a Teapot",
-  description:
-    "Somos un Streaming y Podcast, de Tecnolog&iacute;a y Comunidad. Hecho con &hearts; por el equipo de JavaScript Chile.",
-};
+import { seo } from "@/utils/data";
+
+export const metadata: Metadata = seo;
 
 export default function Home() {
   return (
@@ -48,7 +46,7 @@ export default function Home() {
             </h1>
           </div>
           <h2 className="mb-4 text-lg text-slate-300 sm:text-xl xl:text-2xl">
-            Un Podcast de Tecnología, Web y Comunidad.
+            Un Streaming de Tecnología, Web y Comunidad.
           </h2>
           <div className="">
             <h3 className="text-base text-slate-400 sm:text-lg xl:text-xl">
