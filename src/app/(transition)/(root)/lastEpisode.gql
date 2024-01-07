@@ -1,14 +1,14 @@
 query LastEpisode {
-  allEpisodio(sort: [{ fecha: DESC }], limit: 1) {
+  allEpisode(sort: [{ airdate: DESC }], limit: 1) {
     _id
-    titulo
-    descripcion
+    title
+    description
     tags {
       _id
-      descripcion
+      description
     }
     body
-    asistentes {
+    hosts {
       _id
     }
   }
