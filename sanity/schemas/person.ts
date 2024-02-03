@@ -52,6 +52,12 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: "links",
+      title: "Links",
+      type: "array",
+      of: [{ type: "reference", to: { type: "link" } }],
+    }),
   ],
   preview: {
     select: {
