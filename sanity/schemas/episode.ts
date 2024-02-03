@@ -62,28 +62,10 @@ export default defineType({
       type: "number",
     }),
     defineField({
-      name: "youtubeUrl",
-      title: "Youtube URL",
-      type: "url",
-      description: "Youtube URL",
-    }),
-    defineField({
-      name: "twitchUrl",
-      title: "Twitch URL",
-      type: "url",
-      description: "Tiwtch URL",
-    }),
-    defineField({
-      name: "linkedinUrl",
-      title: "Linkedin URL",
-      type: "url",
-      description: "Linkedin URL",
-    }),
-    defineField({
-      name: "facebookUrl",
-      title: "Facebook URL",
-      type: "url",
-      description: "Linkedin URL",
+      name: "links",
+      title: "Links",
+      type: "array",
+      of: [{ type: "reference", to: { type: "link" } }],
     }),
     defineField({
       name: "hosts",
