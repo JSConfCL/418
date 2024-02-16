@@ -25,6 +25,12 @@ export default defineType({
   ],
   fields: [
     defineField({
+      name: "episode",
+      title: "Episode",
+      type: "number",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
@@ -51,10 +57,15 @@ export default defineType({
       description: "Episode Description",
     }),
     defineField({
-      name: "youtubeUrl",
-      title: "Youtube URL",
-      type: "url",
-      description: "Youtube URL",
+      name: "duration",
+      title: "Duration",
+      type: "number",
+    }),
+    defineField({
+      name: "links",
+      title: "Links",
+      type: "array",
+      of: [{ type: "reference", to: { type: "link" } }],
     }),
     defineField({
       name: "hosts",
@@ -70,6 +81,12 @@ export default defineType({
           }),
         ];
       },
+      type: "array",
+      of: [{ type: "reference", to: { type: "person" } }],
+    }),
+    defineField({
+      name: "guests",
+      title: "Guests",
       type: "array",
       of: [{ type: "reference", to: { type: "person" } }],
     }),

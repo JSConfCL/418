@@ -11,11 +11,16 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "nickname",
+      title: "Nickname",
+      type: "string",
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
       options: {
-        source: "name",
+        source: (doc, _context) => `${doc.nickname || doc.name || ''}`,
         maxLength: 96,
       },
     }),
@@ -46,6 +51,12 @@ export default defineType({
           lists: [],
         },
       ],
+    }),
+    defineField({
+      name: "links",
+      title: "Links",
+      type: "array",
+      of: [{ type: "reference", to: { type: "link" } }],
     }),
   ],
   preview: {
