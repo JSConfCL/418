@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "persona",
-  title: "Persona",
+  name: "person",
+  title: "Person",
   type: "document",
   fields: [
     defineField({
@@ -20,8 +20,8 @@ export default defineType({
       },
     }),
     defineField({
-      name: "image",
-      title: "Image",
+      name: "avatar",
+      title: "Avatar",
       type: "image",
       options: {
         hotspot: true,
@@ -30,7 +30,7 @@ export default defineType({
         {
           name: "alt",
           type: "string",
-          title: "Alternative Text",
+          title: "Avatar",
         },
       ],
     }),
@@ -51,7 +51,7 @@ export default defineType({
   preview: {
     select: {
       title: "name",
-      media: "image",
+      media: "avatar",
     },
   },
 });

@@ -1,70 +1,77 @@
+// We can base this model on Spotify/Twitch models/API
+//   This would be a mix because the nature but for standard names and business definitions
+//
+// Ref: https://developer.spotify.com/documentation/web-api/reference/get-an-episode
+// Ref: https://dev.twitch.tv/docs/api/videos/
+
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "episodio",
-  title: "Episodio",
+  name: "episode",
+  title: "Episode",
   type: "document",
-  description: "Episodio del livestream",
+  description: "Livestream Episode",
   orderings: [
     {
       by: [
         {
-          field: "fecha",
+          field: "datetime",
           direction: "desc",
         },
       ],
-      title: "Fecha de emisión",
-      name: "fechaDesc",
+      title: "Air Date",
+      name: "airdate",
     },
   ],
   fields: [
     defineField({
-      name: "titulo",
-      title: "Título",
+      name: "title",
+      title: "Title",
       type: "string",
       validation: (Rule) => Rule.required(),
       icon: () => "📺",
     }),
     defineField({
-      name: "fecha",
+      name: "airdate",
       validation: (Rule) => Rule.required(),
-      title: "Fecha de emisión",
-      type: "date",
+      title: "Air Date",
+      type: "datetime",
       options: {
         dateFormat: "DD-MM-YYYY",
+        timeFormat: "HH:mm",
+        timeStep: 15
       },
     }),
     defineField({
-      name: "descripcion",
+      name: "description",
       validation: (Rule) => Rule.required(),
-      title: "Descripción",
+      title: "Description",
       type: "text",
       rows: 10,
-      description: "Descripción del episodio",
+      description: "Episode Description",
     }),
     defineField({
       name: "youtubeUrl",
-      validation: (Rule) => Rule.required(),
       title: "Youtube URL",
       type: "url",
-      description: "Link al video de youtube",
+      description: "Youtube URL",
     }),
     defineField({
-      name: "asistentes",
-      title: "Asistentes",
+      name: "hosts",
+      title: "Hosts",
       validation: (Rule) => {
         return [
           Rule.required(),
           Rule.custom((value, { document }) => {
             if (value && value?.length > 1 && !document?.isLanding) {
-              return "Debes añadir al menos un asistente";
+              return "You must add at least 1 host.";
             }
             return true;
           }),
         ];
       },
       type: "array",
-      of: [{ type: "reference", to: { type: "persona" } }],
+      of: [{ type: "reference", to: { type: "person" } }],
     }),
     defineField({
       name: "mainImage",
@@ -96,23 +103,14 @@ export default defineType({
 
   preview: {
     select: {
-      title: "titulo",
-      fecha: "fecha",
+      title: "title",
+      airdate: "airdate",
     },
     prepare(selection) {
       return {
         ...selection,
-        subtitle: selection.fecha ? (selection.fecha as string) : "",
+        subtitle: selection.airdate ? (selection.airdate as string) : "",
       };
-    },
-    // select: {
-    //   title: "title",
-    //   author: "author.name",
-    //   media: "mainImage",
-    // },
-    // prepare(selection) {
-    //   const { asistentes } = selection;
-    //   return { ...selection, subtitle: author && `by ${author}` };
-    // },
+    }
   },
 });

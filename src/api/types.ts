@@ -29,13 +29,16 @@ export type Block = {
   _key: Maybe<Scalars['String']['output']>;
   _type: Maybe<Scalars['String']['output']>;
   children: Maybe<Array<Maybe<Span>>>;
-  list: Maybe<Scalars['String']['output']>;
+  level: Maybe<Scalars['Float']['output']>;
+  listItem: Maybe<Scalars['String']['output']>;
   style: Maybe<Scalars['String']['output']>;
 };
 
 export type BooleanFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['Boolean']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is not equal to the given input. */
   neq: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -75,6 +78,8 @@ export type DateFilter = {
   gt: InputMaybe<Scalars['Date']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Date']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Date']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -90,6 +95,8 @@ export type DatetimeFilter = {
   gt: InputMaybe<Scalars['DateTime']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['DateTime']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['DateTime']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -130,8 +137,8 @@ export type DocumentSorting = {
   _updatedAt: InputMaybe<SortOrder>;
 };
 
-export type Episodio = Document & {
-  __typename?: 'Episodio';
+export type Episode = Document & {
+  __typename?: 'Episode';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']['output']>;
   /** Document ID */
@@ -143,19 +150,28 @@ export type Episodio = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  asistentes: Maybe<Array<Maybe<Persona>>>;
+  airdate: Maybe<Scalars['DateTime']['output']>;
   body: Maybe<Scalars['String']['output']>;
-  /** Descripción del episodio */
-  descripcion: Maybe<Scalars['String']['output']>;
-  fecha: Maybe<Scalars['Date']['output']>;
+  /** Episode Description */
+  description: Maybe<Scalars['String']['output']>;
+  duration: Maybe<Scalars['Float']['output']>;
+  episode: Maybe<Scalars['Float']['output']>;
+  /** Linkedin URL */
+  facebookUrl: Maybe<Scalars['String']['output']>;
+  guests: Maybe<Array<Maybe<Person>>>;
+  hosts: Maybe<Array<Maybe<Person>>>;
+  /** Linkedin URL */
+  linkedinUrl: Maybe<Scalars['String']['output']>;
   mainImage: Maybe<Image>;
   tags: Maybe<Array<Maybe<Tag>>>;
-  titulo: Maybe<Scalars['String']['output']>;
-  /** Link al video de youtube */
+  title: Maybe<Scalars['String']['output']>;
+  /** Tiwtch URL */
+  twitchUrl: Maybe<Scalars['String']['output']>;
+  /** Youtube URL */
   youtubeUrl: Maybe<Scalars['String']['output']>;
 };
 
-export type EpisodioFilter = {
+export type EpisodeFilter = {
   /** Apply filters on document level */
   _: InputMaybe<Sanity_DocumentFilter>;
   _createdAt: InputMaybe<DatetimeFilter>;
@@ -164,26 +180,36 @@ export type EpisodioFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
+  airdate: InputMaybe<DatetimeFilter>;
   body: InputMaybe<StringFilter>;
-  descripcion: InputMaybe<StringFilter>;
-  fecha: InputMaybe<DateFilter>;
+  description: InputMaybe<StringFilter>;
+  duration: InputMaybe<FloatFilter>;
+  episode: InputMaybe<FloatFilter>;
+  facebookUrl: InputMaybe<StringFilter>;
+  linkedinUrl: InputMaybe<StringFilter>;
   mainImage: InputMaybe<ImageFilter>;
-  titulo: InputMaybe<StringFilter>;
+  title: InputMaybe<StringFilter>;
+  twitchUrl: InputMaybe<StringFilter>;
   youtubeUrl: InputMaybe<StringFilter>;
 };
 
-export type EpisodioSorting = {
+export type EpisodeSorting = {
   _createdAt: InputMaybe<SortOrder>;
   _id: InputMaybe<SortOrder>;
   _key: InputMaybe<SortOrder>;
   _rev: InputMaybe<SortOrder>;
   _type: InputMaybe<SortOrder>;
   _updatedAt: InputMaybe<SortOrder>;
+  airdate: InputMaybe<SortOrder>;
   body: InputMaybe<SortOrder>;
-  descripcion: InputMaybe<SortOrder>;
-  fecha: InputMaybe<SortOrder>;
+  description: InputMaybe<SortOrder>;
+  duration: InputMaybe<SortOrder>;
+  episode: InputMaybe<SortOrder>;
+  facebookUrl: InputMaybe<SortOrder>;
+  linkedinUrl: InputMaybe<SortOrder>;
   mainImage: InputMaybe<ImageSorting>;
-  titulo: InputMaybe<SortOrder>;
+  title: InputMaybe<SortOrder>;
+  twitchUrl: InputMaybe<SortOrder>;
   youtubeUrl: InputMaybe<SortOrder>;
 };
 
@@ -212,6 +238,8 @@ export type FloatFilter = {
   gt: InputMaybe<Scalars['Float']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Float']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Float']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -287,6 +315,8 @@ export type IntFilter = {
   gt: InputMaybe<Scalars['Int']['input']>;
   /** Checks if the value is greater than or equal to the given input. */
   gte: InputMaybe<Scalars['Int']['input']>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value is lesser than the given input. */
   lt: InputMaybe<Scalars['Int']['input']>;
   /** Checks if the value is lesser than or equal to the given input. */
@@ -295,8 +325,8 @@ export type IntFilter = {
   neq: InputMaybe<Scalars['Int']['input']>;
 };
 
-export type Persona = Document & {
-  __typename?: 'Persona';
+export type Person = Document & {
+  __typename?: 'Person';
   /** Date the document was created */
   _createdAt: Maybe<Scalars['DateTime']['output']>;
   /** Document ID */
@@ -308,13 +338,13 @@ export type Persona = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
+  avatar: Maybe<Image>;
   bioRaw: Maybe<Scalars['JSON']['output']>;
-  image: Maybe<Image>;
   name: Maybe<Scalars['String']['output']>;
   slug: Maybe<Slug>;
 };
 
-export type PersonaFilter = {
+export type PersonFilter = {
   /** Apply filters on document level */
   _: InputMaybe<Sanity_DocumentFilter>;
   _createdAt: InputMaybe<DatetimeFilter>;
@@ -323,19 +353,19 @@ export type PersonaFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
-  image: InputMaybe<ImageFilter>;
+  avatar: InputMaybe<ImageFilter>;
   name: InputMaybe<StringFilter>;
   slug: InputMaybe<SlugFilter>;
 };
 
-export type PersonaSorting = {
+export type PersonSorting = {
   _createdAt: InputMaybe<SortOrder>;
   _id: InputMaybe<SortOrder>;
   _key: InputMaybe<SortOrder>;
   _rev: InputMaybe<SortOrder>;
   _type: InputMaybe<SortOrder>;
   _updatedAt: InputMaybe<SortOrder>;
-  image: InputMaybe<ImageSorting>;
+  avatar: InputMaybe<ImageSorting>;
   name: InputMaybe<SortOrder>;
   slug: InputMaybe<SlugSorting>;
 };
@@ -343,14 +373,14 @@ export type PersonaSorting = {
 export type RootQuery = {
   __typename?: 'RootQuery';
   Document: Maybe<Document>;
-  Episodio: Maybe<Episodio>;
-  Persona: Maybe<Persona>;
+  Episode: Maybe<Episode>;
+  Person: Maybe<Person>;
   SanityFileAsset: Maybe<SanityFileAsset>;
   SanityImageAsset: Maybe<SanityImageAsset>;
   Tag: Maybe<Tag>;
   allDocument: Array<Document>;
-  allEpisodio: Array<Episodio>;
-  allPersona: Array<Persona>;
+  allEpisode: Array<Episode>;
+  allPerson: Array<Person>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
   allTag: Array<Tag>;
@@ -362,12 +392,12 @@ export type RootQueryDocumentArgs = {
 };
 
 
-export type RootQueryEpisodioArgs = {
+export type RootQueryEpisodeArgs = {
   id: Scalars['ID']['input'];
 };
 
 
-export type RootQueryPersonaArgs = {
+export type RootQueryPersonArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -395,19 +425,19 @@ export type RootQueryAllDocumentArgs = {
 };
 
 
-export type RootQueryAllEpisodioArgs = {
+export type RootQueryAllEpisodeArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<Array<EpisodioSorting>>;
-  where: InputMaybe<EpisodioFilter>;
+  sort: InputMaybe<Array<EpisodeSorting>>;
+  where: InputMaybe<EpisodeFilter>;
 };
 
 
-export type RootQueryAllPersonaArgs = {
+export type RootQueryAllPersonArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<Array<PersonaSorting>>;
-  where: InputMaybe<PersonaFilter>;
+  sort: InputMaybe<Array<PersonSorting>>;
+  where: InputMaybe<PersonFilter>;
 };
 
 
@@ -847,6 +877,8 @@ export type StringFilter = {
   /** Checks if the value is equal to the given input. */
   eq: InputMaybe<Scalars['String']['input']>;
   in: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Checks if the value is defined. */
+  is_defined: InputMaybe<Scalars['Boolean']['input']>;
   /** Checks if the value matches the given word/words. */
   matches: InputMaybe<Scalars['String']['input']>;
   /** Checks if the value is not equal to the given input. */
@@ -867,7 +899,7 @@ export type Tag = Document & {
   _type: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt: Maybe<Scalars['DateTime']['output']>;
-  descripcion: Maybe<Scalars['String']['output']>;
+  description: Maybe<Scalars['String']['output']>;
   tag: Maybe<Slug>;
 };
 
@@ -880,7 +912,7 @@ export type TagFilter = {
   _rev: InputMaybe<StringFilter>;
   _type: InputMaybe<StringFilter>;
   _updatedAt: InputMaybe<DatetimeFilter>;
-  descripcion: InputMaybe<StringFilter>;
+  description: InputMaybe<StringFilter>;
   tag: InputMaybe<SlugFilter>;
 };
 
@@ -891,28 +923,28 @@ export type TagSorting = {
   _rev: InputMaybe<SortOrder>;
   _type: InputMaybe<SortOrder>;
   _updatedAt: InputMaybe<SortOrder>;
-  descripcion: InputMaybe<SortOrder>;
+  description: InputMaybe<SortOrder>;
   tag: InputMaybe<SlugSorting>;
 };
 
 export type LastEpisodeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LastEpisodeQuery = { __typename?: 'RootQuery', allEpisodio: Array<{ __typename?: 'Episodio', _id: string | null, titulo: string | null, descripcion: string | null, body: string | null, tags: Array<{ __typename?: 'Tag', _id: string | null, descripcion: string | null } | null> | null, asistentes: Array<{ __typename?: 'Persona', _id: string | null } | null> | null }> };
+export type LastEpisodeQuery = { __typename?: 'RootQuery', allEpisode: Array<{ __typename?: 'Episode', _id: string | null, title: string | null, description: string | null, body: string | null, tags: Array<{ __typename?: 'Tag', _id: string | null, description: string | null } | null> | null, hosts: Array<{ __typename?: 'Person', _id: string | null } | null> | null }> };
 
 
 export const LastEpisodeDocument = gql`
     query LastEpisode {
-  allEpisodio(sort: [{fecha: DESC}], limit: 1) {
+  allEpisode(sort: [{airdate: DESC}], limit: 1) {
     _id
-    titulo
-    descripcion
+    title
+    description
     tags {
       _id
-      descripcion
+      description
     }
     body
-    asistentes {
+    hosts {
       _id
     }
   }
